@@ -1,4 +1,4 @@
-﻿<!doctype HTML>
+<!doctype HTML>
 <html>
 <head>
     <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
@@ -26,23 +26,53 @@
         });
 
 
-    </script>
+			        AFRAME.registerComponent('vidhandler2', {
+            init: function() {
+                this.toggle = false;
+                this.vid = document.querySelector("#vid2");
+                this.vid.pause();
+            },
+            tick: function() {
+                if (this.el.object3D.visible == true) {
+                    if (!this.toggle) {
+                        this.toggle = true;
+                        this.vid.play();
+                    }
+                } else {
+                    this.toggle = false;
+                    this.vid.pause();
+                }
+            }
+        });
+
+		</script>
+
 </head>
 <body style='margin : 0px; overflow: hidden;'>
   <div style='position: fixed; top: 10px; width:inherit; text-align: center; z-index: 1;'>
   </div>
-    <a-scene embedded arjs='detectionMode: mono; trackingMethod: best; debugUIEnabled: false;' vr-mode-ui="enabled: false">
+    <a-scene embedded arjs='sourceType: webcam; detectionMode: mono; trackingMethod: best; debugUIEnabled: false;' vr-mode-ui="enabled: false">
     <a-assets>
 
                 <video id="vid" src="https://cdn.glitch.com/b62367d1-ceab-454b-b664-b032f995ed86%2FBig_Buck_Bunny_Trailer_1080p.ogv.720p.webm?1532370072191" loop="true" crossorigin>
-
+				<video id="vid2" src="https://ak0.picdn.net/shutterstock/videos/1023566830/preview/stock-footage-beautiful-sunrise-world-skyline-planet-earth-from-space-planet-earth-rotating-animation-clip.webm" loop="true" crossorigin>
            
         </a-assets>  
-		 <a-marker id="memarker" preset="hiro" vidhandler>
+		<a-marker type="pattern" url="pattern-Launchable.patt" vidhandler>
+
+	
             <a-video position='0 0 0' rotation="-90 0 0" scale="1.77 1 1.77" material='transparent:true;src:#vid' play="true" controls></a-video>
         </a-marker>
+			
+	
+				<a-marker id="memarker" preset="hiro" vidhandler2>
+	
+            <a-video position='0 0 0' rotation="-90 0 0" scale="1.77 1 1.77" material='transparent:true;src:#vid2' play="true" controls></a-video>
+        </a-marker>
+			
       
     <a-entity camera></a-entity>
     </a-scene>
   </body>
 </html>
+
