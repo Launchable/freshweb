@@ -7,11 +7,17 @@
     <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.1.2/dist/aframe-extras.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>
+
+
+						
+
+
         AFRAME.registerComponent('vidhandler', {
             init: function() {
                 this.toggle = false;
                 this.vid = document.querySelector("#vid");
                 this.vid.pause();
+
             },
             tick: function() {
                 if (this.el.object3D.visible == true) {
@@ -24,8 +30,10 @@
                 } else {
                     this.toggle = false;
                     this.vid.pause();
-					 document.getElementById("Launchable").style.opacity = "0.5";
-					 document.getElementById("LaunchableBeams").style.opacity = "0.5";
+				
+
+
+				
                 }
             }
         });
@@ -48,8 +56,8 @@
                 } else {
                     this.toggle = false;
                     this.vid.pause();
-					 document.getElementById("Launchable").style.opacity = "0.5";
-					 document.getElementById("LaunchableBeams").style.opacity = "0.5";
+						document.getElementById("Launchable").style.opacity = "0.5";
+						document.getElementById("LaunchableBeams").style.opacity = "0.5";	
                 }
             }
         });
@@ -73,8 +81,6 @@
                 } else {
                     this.toggle = false;
                     this.vid.pause();
-					 document.getElementById("Launchable").style.opacity = "0.5";
-					 document.getElementById("LaunchableBeams").style.opacity = "0.5";
                 }
             }
         });
@@ -97,8 +103,6 @@
                 } else {
                     this.toggle = false;
                     this.vid.pause();
-					 document.getElementById("Launchable").style.opacity = "0.5";
-					 document.getElementById("LaunchableBeams").style.opacity = "0.5";
                 }
             }
         });
@@ -107,11 +111,11 @@
 		<style>
 		#Launchable{
 		position: abosolute;
-
+		
 		}
 		#LaunchableBeams{
 		position: abosolute;
-
+	
 		}
 
 		</style>
@@ -122,10 +126,10 @@
 
 <body style='margin : 0px; overflow: hidden;'>
 
-  <div class="w3-container" id="LaunchableBeams" style='position: fixed; top: 10px; width:inherit; text-align: center; z-index: 1;'>
+  <div class="w3-container" id="LaunchableBeams" style='position: fixed; top: 10px; width:inherit; text-align: center; z-index: 1; '>
   <img class="w3-animate-fading" src="LaunchableTransBeams.png" alt="Launchables">
   </div>
-  <div id="Launchable" style='position: fixed; top: 10px; width:inherit; text-align: center; z-index: 1;'>
+  <div id="Launchable" style='position: fixed; top: 10px; width:inherit; text-align: center; z-index: 1; '>
   <img src="LaunchableTrans.png" alt="Launchables">
   </div>
 
