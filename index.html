@@ -19,11 +19,13 @@
                         this.toggle = true;
                         this.vid.play();
 						document.getElementById("Launchable").style.opacity = "0.0";
+						document.getElementById("LaunchableBeams").style.opacity = "0.0";
                     }
                 } else {
                     this.toggle = false;
                     this.vid.pause();
 					 document.getElementById("Launchable").style.opacity = "0.5";
+					 document.getElementById("LaunchableBeams").style.opacity = "0.5";
                 }
             }
         });
@@ -40,10 +42,14 @@
                     if (!this.toggle) {
                         this.toggle = true;
                         this.vid.play();
+						document.getElementById("Launchable").style.opacity = "0.0";
+						document.getElementById("LaunchableBeams").style.opacity = "0.0";
                     }
                 } else {
                     this.toggle = false;
                     this.vid.pause();
+					 document.getElementById("Launchable").style.opacity = "0.5";
+					 document.getElementById("LaunchableBeams").style.opacity = "0.5";
                 }
             }
         });
@@ -61,10 +67,14 @@
                     if (!this.toggle) {
                         this.toggle = true;
                         this.vid.play();
+					    document.getElementById("Launchable").style.opacity = "0.0";
+						document.getElementById("LaunchableBeams").style.opacity = "0.0";
                     }
                 } else {
                     this.toggle = false;
                     this.vid.pause();
+					 document.getElementById("Launchable").style.opacity = "0.5";
+					 document.getElementById("LaunchableBeams").style.opacity = "0.5";
                 }
             }
         });
@@ -81,10 +91,14 @@
                     if (!this.toggle) {
                         this.toggle = true;
                         this.vid.play();
+						document.getElementById("Launchable").style.opacity = "0.0";
+						document.getElementById("LaunchableBeams").style.opacity = "0.0";
                     }
                 } else {
                     this.toggle = false;
                     this.vid.pause();
+					 document.getElementById("Launchable").style.opacity = "0.5";
+					 document.getElementById("LaunchableBeams").style.opacity = "0.5";
                 }
             }
         });
@@ -95,14 +109,22 @@
 		position: abosolute;
 
 		}
+		#LaunchableBeams{
+		position: abosolute;
+
+		}
 
 		</style>
-		<link rel="stylesheet" type="text/css" href="rainbow.css">
+		
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	
 </head>
 
 <body style='margin : 0px; overflow: hidden;'>
 
+  <div class="w3-container" id="LaunchableBeams" style='position: fixed; top: 10px; width:inherit; text-align: center; z-index: 1;'>
+  <img class="w3-animate-fading" src="LaunchableTransBeams.png" alt="Launchables">
+  </div>
   <div id="Launchable" style='position: fixed; top: 10px; width:inherit; text-align: center; z-index: 1;'>
   <img src="LaunchableTrans.png" alt="Launchables">
   </div>
