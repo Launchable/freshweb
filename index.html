@@ -18,10 +18,12 @@
                     if (!this.toggle) {
                         this.toggle = true;
                         this.vid.play();
+						document.getElementById("Launchable").style.opacity = "0.0";
                     }
                 } else {
                     this.toggle = false;
                     this.vid.pause();
+					 document.getElementById("Launchable").style.opacity = "0.5";
                 }
             }
         });
@@ -88,15 +90,23 @@
         });
 
 		</script>
-		
+		<style>
+		#Launchable{
+		position: abosolute;
+
+		}
+
+		</style>
 		<link rel="stylesheet" type="text/css" href="rainbow.css">
 	
 </head>
 
 <body style='margin : 0px; overflow: hidden;'>
 
-  <div style='position: fixed; top: 10px; width:inherit; text-align: center; z-index: 1;'>
+  <div id="Launchable" style='position: fixed; top: 10px; width:inherit; text-align: center; z-index: 1;'>
+  <img src="LaunchableTrans.png" alt="Launchables">
   </div>
+
 
     <a-scene embedded arjs='sourceType: webcam; detectionMode: mono; trackingMethod: best; debugUIEnabled: false;' vr-mode-ui="enabled: false">
     <a-assets>
