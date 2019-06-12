@@ -6,6 +6,33 @@
     <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.2/aframe/build/aframe-ar.js"></script>
     <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.1.2/dist/aframe-extras.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	
+
+
+
+	<script>
+window[‘_fs_debug’] = false;
+window[‘_fs_host’] = ‘fullstory.com’;
+window[‘_fs_org’] = ‘MFPQ1’;
+window[‘_fs_namespace’] = ‘FS’;
+(function(m,n,e,t,l,o,g,y){
+   if (e in m) {if(m.console && m.console.log) { m.console.log(‘FullStory namespace conflict. Please set window[“_fs_namespace”].’);} return;}
+   g=m[e]=function(a,b,s){g.q?g.q.push([a,b,s]):g._api(a,b,s);};g.q=[];
+   o=n.createElement(t);o.async=1;o.crossOrigin=‘anonymous’;o.src=‘https://‘+_fs_host+‘/s/fs.js’;
+   y=n.getElementsByTagName(t)[0];y.parentNode.insertBefore(o,y);
+   g.identify=function(i,v,s){g(l,{uid:i},s);if(v)g(l,v,s)};g.setUserVars=function(v,s){g(l,v,s)};g.event=function(i,v,s){g(‘event’,{n:i,p:v},s)};
+   g.shutdown=function(){g(“rec”,!1)};g.restart=function(){g(“rec”,!0)};
+   g.consent=function(a){g(“consent”,!arguments.length||a)};
+   g.identifyAccount=function(i,v){o=‘account’;v=v||{};v.acctId=i;g(o,v)};
+   g.clearUserCookie=function(){};
+})(window,document,window[‘_fs_namespace’],‘script’,‘user’);
+</script>
+
+
+
+
+
+
   <script>
 
 
@@ -156,17 +183,23 @@
 				<video id="vid3" src="https://ak0.picdn.net/shutterstock/videos/23251600/preview/stock-footage-stars-fly-past-the-viewer-against-a-backdrop-of-clouds-and-gas-in-space-k-uhd-x.webm" loop="true" crossorigin>
                 <video id="vid4" src="https://ak0.picdn.net/shutterstock/videos/1015775620/preview/stock-footage-falling-coriander-in-to-a-bowl-pho-soup-bowl-of-asian-soup-slider-shot.webm" loop="true" crossorigin>
 
+			
 
         </a-assets>  
 
 		        <a-marker type="pattern" url="https://raw.githubusercontent.com/Launchable/freshweb/master/pattern-Launchable.patt" vidhandler>
             <a-video  position='0 0 0' rotation="-90 0 0" scale="1.77 1 1.77" material='transparent:true;src:#vid' play="true" controls></a-video>
 			<a-image rotation="-90 0 0" width="1.89" height="1.14" src="#Border2"></a-image>
+			
+			
+			
+    
         </a-marker>
 			
 				<a-marker id="memarker" preset="hiro" vidhandler2>
             <a-video position='0 0 0' rotation="-90 0 0" scale="1.77 1 1.77" material='transparent:true;src:#vid2' play="true" controls></a-video>
 			<a-image rotation="-90 0 0" width="1.89" height="1.14" src="#Border2"></a-image>
+		
         </a-marker>
 
 				<a-marker type="memarker" preset="kanji" vidhandler3>
