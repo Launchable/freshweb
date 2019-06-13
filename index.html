@@ -6,6 +6,8 @@
     <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.2/aframe/build/aframe-ar.js"></script>
     <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.1.2/dist/aframe-extras.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	
 	
 
 
@@ -35,6 +37,47 @@ window['_fs_namespace'] = 'FS';
 
 
 	<script>
+	/*
+			AFRAME.registerComponent('markerhandler', {
+   tick:function() {
+   	  //var targets = (document.querySelectorAll("a-marker").object3D.visible == true 
+	 // for (var i = 0; i < targets.length; i++) {
+      if(document.querySelector("a-marker").object3D.visible == true){
+
+      // MARKER IS PRESENT
+	  				document.getElementById("Launchable").style.opacity = "0";
+					document.getElementById("LaunchableBeams").style.opacity = "0";
+      } else {
+      // MARKER IS HIDDEN
+	  				document.getElementById("Launchable").style.opacity = "0.5";
+					document.getElementById("LaunchableBeams").style.opacity = "0.5";
+      }
+   }
+});
+
+*/
+
+	AFRAME.registerComponent('registerevents', {
+		init: function () {
+			var marker = this.el;
+					document.getElementById("Launchable").style.opacity = "0.5";
+					document.getElementById("LaunchableBeams").style.opacity = "0.5";
+			marker.addEventListener('markerFound', function() {
+				var markerId = marker.id;
+				console.log('markerFound', markerId);
+				// TODO: Add your own code here to react to the marker being found.
+					document.getElementById("Launchable").style.opacity = "0";
+					document.getElementById("LaunchableBeams").style.opacity = "0";
+			});
+			marker.addEventListener('markerLost', function() {
+				var markerId = marker.id;
+				console.log('markerLost', markerId);
+				// TODO: Add your own code here to react to the marker being lost.
+					document.getElementById("Launchable").style.opacity = "0.5";
+					document.getElementById("LaunchableBeams").style.opacity = "0.5";
+			});
+		}
+	});
 
 
         AFRAME.registerComponent('vidhandler', {
@@ -49,14 +92,13 @@ window['_fs_namespace'] = 'FS';
                     if (!this.toggle) {
                         this.toggle = true;
                         this.vid.play();
-						document.getElementById("Launchable").style.opacity = "0.0";
-						document.getElementById("LaunchableBeams").style.opacity = "0.0";
+
 
                     }
                 } else {
                     this.toggle = false;
                     this.vid.pause();
-			myFunction();
+		
 				
 
 
@@ -77,8 +119,7 @@ window['_fs_namespace'] = 'FS';
                     if (!this.toggle) {
                         this.toggle = true;
                         this.vid.play();
-						document.getElementById("Launchable").style.opacity = "0.0";
-						document.getElementById("LaunchableBeams").style.opacity = "0.0";
+				
                     }
                 } else {
                     this.toggle = false;
@@ -101,8 +142,7 @@ window['_fs_namespace'] = 'FS';
                     if (!this.toggle) {
                         this.toggle = true;
                         this.vid.play();
-					    document.getElementById("Launchable").style.opacity = "0.0";
-						document.getElementById("LaunchableBeams").style.opacity = "0.0";
+					 
                     }
                 } else {
                     this.toggle = false;
@@ -123,8 +163,7 @@ window['_fs_namespace'] = 'FS';
                     if (!this.toggle) {
                         this.toggle = true;
                         this.vid.play();
-						document.getElementById("Launchable").style.opacity = "0.0";
-						document.getElementById("LaunchableBeams").style.opacity = "0.0";
+					
                     }
                 } else {
                     this.toggle = false;
@@ -132,11 +171,13 @@ window['_fs_namespace'] = 'FS';
                 }
             }
         });
-		function myFunction(){
-							document.getElementById("Launchable").style.opacity = "0.5";
-					document.getElementById("LaunchableBeams").style.opacity = "0.5";
-				
-					}
+
+
+
+
+
+
+
 					
 
 
@@ -149,7 +190,7 @@ window['_fs_namespace'] = 'FS';
 		}
 		#LaunchableBeams{
 		position: abosolute;
-	
+		
 		}
 
 
@@ -161,15 +202,15 @@ window['_fs_namespace'] = 'FS';
 
 <body style='margin : 0px; overflow: hidden;'>
 
-  <div class="w3-container" id="LaunchableBeams" style='position: fixed; top: 10px; width:inherit; text-align: center; z-index: 1; '>
+  <div class="w3-container" id="LaunchableBeams" style='position: fixed; top: 40%; width:inherit; text-align: center; z-index: 1; '>
   <img class="w3-animate-fading" src="LaunchableTransBeams.png" alt="Launchables">
   </div>
 
-  <div id="Launchable" style='position: fixed; top: 10px; width:inherit; text-align: center; z-index: 1; '>
+  <div id="Launchable" style='position: fixed; top: 40%; width:inherit; text-align: center; z-index: 1; '>
   <img src="LaunchableTrans.png" alt="Launchables">
   </div>
 
-    <a-scene embedded arjs='patternRatio: 0.8; sourceType: webcam; detectionMode: mono; trackingMethod: best; debugUIEnabled: false;' vr-mode-ui="enabled: false">
+    <a-scene embedded arjs='patternRatio: 0.8; sourceType: webcam; detectionMode: mono; trackingMethod: best; debugUIEnabled: false;' vr-mode-ui="enabled: false" registerevents>
     <a-assets>
 	
 			
@@ -185,7 +226,7 @@ window['_fs_namespace'] = 'FS';
 			
 
         </a-assets>  
-
+		
 		        <a-marker type="pattern" url="https://raw.githubusercontent.com/Launchable/freshweb/master/pattern-Launchable.patt" vidhandler>
             <a-video  position='0.001 0.01 0' rotation="-90 0 0" scale="1.76 1 1.77" material='transparent:true;src:#vid' play="true" controls></a-video>
 			<a-image rotation="-90 0 0" width="1.89" height="1.14" src="#Border2"></a-image>
@@ -210,7 +251,7 @@ window['_fs_namespace'] = 'FS';
             <a-video position='0 0 0' rotation="-90 0 0" scale="1.77 1 1.77" material='transparent:true;src:#vid4' play="true" controls></a-video>
 			<a-image rotation="-90 0 0" width="1.89" height="1.14" src="#Border2"></a-image>
 		</a-marker>
-			
+
 			
     <a-entity camera></a-entity>
     </a-scene>
